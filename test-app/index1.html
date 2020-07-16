@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <style>
+    .bg-highlight,
+        .menu-badge,
+        .footer-menu-center-icon .active-nav i {
+            background-color: #4A89DC!important;
+        }
+        
+        body {
+            font-family: sans-serif;
+        }
+        
+        .down {
+            text-align: center;
+        }
+        
+        .down a {
+            color: #008DE7;
+            font-weight: 400;
+        }
+        
+        .down a img {
+            border-radius: 50%;
+            -o-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border: 3px solid #fff;
+        }
+        
+        .down p {
+            font-size: 0.9em;
+            color: #d8d2d2;
+            padding: 5px 8px;
+        }
+        
+        .down ul {
+            padding: 0;
+            margin: 0;
+        }
+        
+        i.lnr.lnr-user {
+            font-size: 1.07em;
+        }
+        
+        .down i {
+            font-size: 1.2em;
+            color: #00C6D7;
+            vertical-align: middle;
+        }
+        
+        .down ul li a {
+            color: #fff;
+            background: none;
+            text-decoration: none;
+        }
+        
+        a.tooltips {
+            position: relative;
+            display: inline;
+        }
+        
+        .lnr {
+            font-family: Linearicons-Free;
+            speak: none;
+            font-style: normal;
+            font-weight: 400;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        h3 {
+            font-family: 'Lato', sans-serif;
+            font-size: 2.125rem;
+            font-weight: 700;
+            color: #444;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 55px 0 35px;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #052963;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        
+        .sidenav a {
+            padding: 6px 0px 6px 26px;
+            text-decoration: none;
+            font-size: 15px;
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        
+        .carousel-inner {
+            margin: auto;
+            width: 90%;
+        }
+        
+        .carousel-control {
+            width: 4%;
+        }
+        
+        .carousel-control.left,
+        .carousel-control.right {
+            background-image: none;
+        }
+        
+        .glyphicon-chevron-left,
+        .carousel-control .glyphicon-chevron-right {
+            margin-top: -10px;
+            margin-left: -10px;
+            color: #444;
+        }
+        
+        img {
+            max-height: 150px;
+            margin: auto auto;
+            max-width: 100%;
+        }
+    }
+    @media (max-width: 414px) {
+        .fixed-footer-cust .col-md-2 {
+            width: 17%
+        }
+        
+        .h4,
+        h4 {
+            font-size: 13px;
+            color: #544f4f;
+        }
+        
+        .text {
+            color: #1f1c1c;
+            font-size: 12px;
+            position: relative;
+            margin-top: 47px;
+            width: 110%;
+        }
+        
+        .texticon {
+            color: #544f4f;
+            font-size: 24px;
+        }
+        
+        .footer-tabs {
+            margin: 1px;
+        }
+        /* Don't need button navigation */
+        
+        @supports (scroll-snap-type) {
+            .carousel-inner > a {
+                display: none;
+            }
+        }
+    }
+    .fixed-footer-cust {
+        background: #fff;
+        text-align: center;
+        padding: 0px 0px 0px 0px;
+        width: 100%;
+        position: fixed;
+        bottom: 0px;
+        z-index: 99;
+        margin-left: -5px;
+    }
+    .fixed-footer-cust .col-md-2 {
+        width: 19%;
+    }
+    .content-left {
+        float: left;
+        margin: 10px;
+    }
+    .content-right {
+        float: right;
+        margin: 23px;
+    }
+    .openNav {
+        font-size: 25px;
+        padding: 17px;
+        cursor: pointer
+    }
+    .text {
+        color: #1f1c1c;
+        font-size: 12px;
+        position: relative;
+        margin-top: 47px;
+        width: 110%;
+    }
+    .icon-background {
+        color: #052963;
+    }
+    .mt-2 {
+        margin-top: 15px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- start container  -->
+    <div class="containerx">
+        <div class="content-left">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="down">
+                    <a href="index.html"><img src="images/admin.jpg"></a>
+                    <a href="index.html"><span class=" name-caret">Jasmin Leo</span></a>
+                    <p>Sample User</p>
+
+                </div>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
+            </div>
+            <span class="openNav" style="" onclick="openNav()">&#9776;</span>
+
+        </div>
+        <div class="content-right">
+            <a href="login.html" class="texticon"><i class="fa fa-sign-out" style="color: black;"></i></a>
+
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="col-md-6 col-md-offset-2 col-sm-12">
+        <form action="" class="search-form">
+            <div class="form-group has-feedback">
+                <label for="search" class="sr-only">Search</label>
+                <input type="text" class="form-control" name="search" id="search" placeholder="search">
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+            </div>
+        </form>
+    </div>
+
+    <div class="card container-fluid">
+        <div class="container">
+
+            <div class="col-md-4 col-xs-4 mt-2">
+                <div class="row">
+                    <a class="active" href="table.html">
+                        <div class="fa-stack fa-3x">
+                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                            <i class="fa fa-volume-control-phone fa-stack-1x" style="color: white;">
+
+                                            </i></a>
+                    <center class="text">Calls for the day</center>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 col-xs-4 mt-2">
+                <div class="row">
+                    <span class="fa-stack fa-3x">
+                                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                            <i class="fa fa-tty fa-stack-1x" style="color: white;"></i>
+                                            <center class="text">Over Due Calls</center>
+                                          </span>
+                </div>
+
+            </div>
+            <div class="col-md-4 col-xs-4 mt-2">
+                <div class="row">
+                    <span class="fa-stack fa-3x">
+                                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                            <i class="fa fa-search fa-stack-1x" style="color: white;"></i>
+                                            <center class="text">Search by Status</center>
+                                          </span>
+                </div>
+
+            </div>
+            <div class="col-md-4 col-xs-4 mt-2">
+                <div class="row">
+                    <span class="fa-stack fa-3x">
+                                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                            <i class="fa fa-phone fa-stack-1x" style="color: green;"></i>
+                                            <center class="text">Hotcalls</center>
+                                          </span>
+                </div>
+
+            </div>
+            <div class="col-md-4 col-xs-4 mt-2">
+                <div class="row">
+                    <span class="fa-stack fa-3x">
+                                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                            <i class="fa fa-id-badge fa-stack-1x" style="color: white;"></i>
+                                            <center class="text">Register a Client</center>
+                                          </span>
+                </div>
+
+            </div>
+            <div class="col-md-4 col-xs-4 mt-2">
+                <div class="row">
+                    <span class="fa-stack fa-3x">
+                                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                            <i class="fa fa-envelope fa-stack-1x" style="color: white;"></i>
+                                            <center class="text">Send Mail</center>
+                                          </span>
+                </div>
+
+            </div>
+
+            <div class="col-md-4 col-xs-4 mt-2">
+                <div class="row">
+                    <span class="fa-stack fa-3x">
+                                            <i class="fa fa-circle fa-stack-2x icon-background"></i>
+                                            <i class="fa fa-hand-peace-o fa-stack-1x" style="color: white;"></i>
+                                            <center class="text">Offer</center>
+                                          </span>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-sm-5 col-sm-offset-2 col-md-12 col-md-offset-0">
+            <center>
+                <button type="button" class="btn btn-success">View All</button>
+            </center>
+        </div>
+    </div>
+
+    <!-- start footer -->
+
+    <div class="footer-tabs">
+        <div class="col-lg-12 col-sm-12 col-xs-12 fixed-footer-cust">
+            <div class="row">
+                <div class="footer-tabs col-md-2 col-sm-2 col-xs-2" style="margin-left: 7px;">
+                    <a href="" class="texticon"><i class="fa fa-home" style="color: #052963;"></i></a>
+                    <div class=""> Home</div>
+                </div>
+                <div class="footer-tabs col-md-2 col-sm-2 col-xs-2">
+                    <a href="" class="texticon"><i class="fa fa-user" style="color: #052963;"></i></a>
+                    <div class=""> Profile </div>
+                </div>
+                <div class="footer-tabs col-md-2 col-sm-2 col-xs-2">
+                    <a href="" class="texticon"><i class="fa fa-plus-circle" style="color: #052963;"></i></a>
+                    <div class=""> Add </div>
+
+                </div>
+                <div class="footer-tabs col-md-2 col-sm-2 col-xs-2">
+                    <a href="" class="texticon"><i class="fa fa-eye" style="color: #052963;"></i></a>
+                    <div class="">Info </div>
+
+                </div>
+                <div class="footer-tabs col-md-2 col-sm-2 col-xs-2">
+                    <a href="" class="texticon"><i class="fa fa-phone" style="color: #052963;"></i></a>
+                    <div class="">Call </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- end footer -->
+
+        <div class="clearfix"></div>
+
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "200px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="scripts/jquery.js"></script>
+        <script type="text/javascript" src="scripts/plugins.js"></script>
+        <script type="text/javascript" src="scripts/custom.js" async></script>
+</body>
+
+</html>
